@@ -4,28 +4,35 @@
 #include <iostream>
 using namespace std;
 
-void print(int n, bool b) {
-    for (int i = 0; i <= n; i++) {
-        if (i % 2 == b) {
-            cout << "\n" << i;
-        }
-    }
-}
 
 int main()
 {
-    int n;
-    cin >> n;
-    int b;
-    cin >> b;
 
-    for (int i = 0; i <= n; i++) {
-        if (i % 2 == 0) {
-            cout << i;
+    int a[5][5];
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            a[i][j] = i + j;
+            cout << a[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+    cout << "\n" << "What is the date of the month today?\n";
+    int dayM, sum = 0;
+    cin >> dayM;
+    dayM %= 5;
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (i == dayM) {
+                sum += a[i][j];
+            }
         }
     }
 
-    print(n, b);
+    cout << sum;
+    
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

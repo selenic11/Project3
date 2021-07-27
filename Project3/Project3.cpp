@@ -1,6 +1,7 @@
 ﻿// Project3.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <windows.h>
 #include <iostream>
 using namespace std;
 
@@ -18,10 +19,12 @@ int main()
         cout << "\n";
     }
 
-    cout << "\n" << "What is the date of the month today?\n";
-    int dayM, sum = 0;
-    cin >> dayM;
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+    int dayM = st.wDay;
     dayM %= 5;
+    
+    int sum = 0;
 
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
